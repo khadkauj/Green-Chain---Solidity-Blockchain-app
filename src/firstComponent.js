@@ -5,7 +5,7 @@ import './firstComponent.css'
 
 function FirstComponent() {
 
-    const contractAddress = '0xd9145CCE52D386f254917e481eB44e9943F39138'
+    const contractAddress = '0xC23d1970bc6D47E2d11bEd5FE4365885B9cAfd99'  
 
     const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState(null);
@@ -13,6 +13,8 @@ function FirstComponent() {
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState(0)
     const [price, setPrice] = useState(0)
+    const [listOfRequestedFreight, setListOfRequestedFreight] = useState([])
+    const [listOfTransportedFreight, setListOfTransportedFreight] = useState([])
 
     // functions
     const connectWalletHandler = () => {
@@ -47,11 +49,13 @@ function FirstComponent() {
         e.preventDefault()
         const result = await contract.getAllRequestedFreight()
         console.log(result); 
+        setListOfRequestedFreight(result)
     }
     const getAllTransportedFreight = async(e) => {
         e.preventDefault()
         const result = await contract.getAllTransportedFreight()
         console.log(result);
+        setListOfTransportedFreight(result)
     }
 
     return (
@@ -78,6 +82,10 @@ function FirstComponent() {
                         <button type='submit' >Submit</button>
                     </form> < br/>< br/> 
                     <div><button onClick={getAllRequestedFreight} >Get All Freight Requested</button>  </div><br /> 
+                    {listOfRequestedFreight.map(item => (
+
+                       < span key={parseInt(item.id._hex, 16)}>Id:{parseInt(item.id._hex, 16)}, Name:{item.name}, Price: {parseInt(item.id._hex, 16)}, Quantity:{parseInt(item.id._hex, 16)}  <br /></span> 
+                    ))}
                 </div>
                 <div>
                     <h3>Freight Transport</h3>
@@ -88,7 +96,7 @@ function FirstComponent() {
                     <input id='quantity' value={quantity} onChange={e => setQuantity(e.target.value)} /><br />
                     <label>price</label><br />
                     <input id='price' value={price} onChange={e => setPrice(e.target.value)} />
-                    <br />
+                    <br /> <br />
                     <button type='submit' >Submit</button>
                 </form> < br/>< br/> 
                 <div><button onClick={getAllTransportedFreight} >Get All Freight Transported</button>  </div>
