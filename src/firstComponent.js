@@ -69,35 +69,31 @@ function FirstComponent() {
                     <h3>Freight Request</h3>
                     <form onSubmit={doFreightRequest} >
                         <label>Name</label> <br />
-                        <input id='name' value={name} onChange={e => setName(e.target.value)} />
-                        <label>quantity</label>
-                        <input id='quantity' value={quantity} onChange={e => setQuantity(e.target.value)} />
-                        <label>price</label>
-                        <input id='price' value={price} onChange={e => setPrice(e.target.value)} />
+                        <input id='name' value={name} onChange={e => setName(e.target.value)} /><br />
+                        <label>quantity</label><br />
+                        <input id='quantity' value={quantity} onChange={e => setQuantity(e.target.value)} /><br />
+                        <label>price</label><br />
+                        <input id='price' value={price} onChange={e => setPrice(e.target.value)} /><br />
                         <br />
                         <button type='submit' >Submit</button>
-                    </form>
+                    </form> < br/>< br/> 
+                    <div><button onClick={getAllRequestedFreight} >Get All Freight Requested</button>  </div><br /> 
                 </div>
                 <div>
                     <h3>Freight Transport</h3>
                     <form onSubmit={doFreightTransport} >
                     <label>Name</label> <br />
-                    <input id='name' value={name} onChange={e => setName(e.target.value)} />
-                    <label>quantity</label>
-                    <input id='quantity' value={quantity} onChange={e => setQuantity(e.target.value)} />
-                    <label>price</label>
+                    <input id='name' value={name} onChange={e => setName(e.target.value)} /><br />
+                    <label>quantity</label><br />
+                    <input id='quantity' value={quantity} onChange={e => setQuantity(e.target.value)} /><br />
+                    <label>price</label><br />
                     <input id='price' value={price} onChange={e => setPrice(e.target.value)} />
                     <br />
                     <button type='submit' >Submit</button>
-                </form></div>
+                </form> < br/>< br/> 
+                <div><button onClick={getAllTransportedFreight} >Get All Freight Transported</button>  </div>
+</div>
             </div>
-
-            <div className='freight'>
-                <div><button onClick={getAllRequestedFreight} >Get All Freight Requested</button>    </div><br />
-                <div><button onClick={getAllTransportedFreight} >Get All Freight Transported</button>    </div>
-                <div></div>
-            </div>
-
 
         </div>
     )
