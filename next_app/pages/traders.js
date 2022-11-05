@@ -44,8 +44,10 @@ export default function Home(props) {
   return (
     <Layout >
       < HeaderComponent />
-      <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button>
-      <div className=""  style={{padding:'14px'}} >
+      {!defaultAccount ?
+        <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button> :
+        <span className="button-connect-metamask">{defaultAccount.slice(0, 6)}...{defaultAccount.slice(defaultAccount.length - 4, defaultAccount.length)}</span>
+        }      <div className=""  style={{padding:'14px'}} >
         {/* <TradersTables /> */}
         <CardComponent />
         {props.cont}

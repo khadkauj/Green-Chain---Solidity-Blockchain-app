@@ -62,7 +62,7 @@ function FirstComponent() {
         <div>
             <div>
                 <h4> {"Get/Set Contract interaction"} </h4>
-                <button onClick={connectWalletHandler}>Connect Wallet</button>
+               { defaultAccount ? <button onClick={connectWalletHandler}>Connect Wallet</button> : defaultAccount}
                 <div>
                     <h3>Address: {defaultAccount}</h3>
                 </div>

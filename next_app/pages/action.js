@@ -52,133 +52,136 @@ export default function Home(props) {
     // handleClose();
   }
 
-      // functions
-      const connectWalletHandler = (event) => {
-        // first we use metamask to sign in
-        if (window.ethereum) {
-            window.ethereum.request({ method: 'eth_requestAccounts' })
-                .then(result => {
-                    setDefaultAccount(result[0])
-                    console.log('res is', result);
-                })
-        } else {
-            console.log('install metamask');
-            return
-        }
-        // second we fetch contract for signed in user
-        let provider = new ethers.providers.Web3Provider(window.ethereum)
-        let signer = provider.getSigner()
-        let contract = new ethers.Contract(contractAddress, ABI, signer)
-        setContract(contract)
-        props.onChange(contract);
-        console.log('contract is:', contract);
+  // functions
+  const connectWalletHandler = (event) => {
+    // first we use metamask to sign in
+    if (window.ethereum) {
+      window.ethereum.request({ method: 'eth_requestAccounts' })
+        .then(result => {
+          setDefaultAccount(result[0])
+          console.log('res is', result);
+        })
+    } else {
+      console.log('install metamask');
+      return
     }
+    // second we fetch contract for signed in user
+    let provider = new ethers.providers.Web3Provider(window.ethereum)
+    let signer = provider.getSigner()
+    let contract = new ethers.Contract(contractAddress, ABI, signer)
+    setContract(contract)
+    props.onChange(contract);
+    console.log('contract is:', contract);
+  }
 
-    const doFreightRequest = async (e) => {
-        e.preventDefault()
-        await contract.doFreightRequest(name, quantity, price, gScore)
-    }
-    const doFreightTransport = async (e) => {
-        e.preventDefault()
-        await contract.doFreightTransport(nameReq, quantityReq, priceReq, gScoreReq)
-    }
-    const getAllRequestedFreight = async (e) => {
-        e.preventDefault()
-        const result = await contract.getAllRequestedFreight()
-        console.log(result);
-        setListOfRequestedFreight(result)
-    }
-    const getAllTransportedFreight = async (e) => {
-        e.preventDefault()
-        const result = await contract.getAllTransportedFreight()
-        console.log(result);
-        setListOfTransportedFreight(result)
-    }
+  const doFreightRequest = async (e) => {
+    e.preventDefault()
+    await contract.doFreightRequest(name, quantity, price, gScore)
+  }
+  const doFreightTransport = async (e) => {
+    e.preventDefault()
+    await contract.doFreightTransport(nameReq, quantityReq, priceReq, gScoreReq)
+  }
+  const getAllRequestedFreight = async (e) => {
+    e.preventDefault()
+    const result = await contract.getAllRequestedFreight()
+    console.log(result);
+    setListOfRequestedFreight(result)
+  }
+  const getAllTransportedFreight = async (e) => {
+    e.preventDefault()
+    const result = await contract.getAllTransportedFreight()
+    console.log(result);
+    setListOfTransportedFreight(result)
+  }
 
   return (
     <Layout >
       {/* <Navbar /> */}
       < HeaderComponent />
-      <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button>
+      {!defaultAccount ?
+        <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button> :
+        <span className="button-connect-metamask">{defaultAccount.slice(0, 6)}...{defaultAccount.slice(defaultAccount.length - 4, defaultAccount.length)}</span>
+        }
       <div className="form-container">
-      <form className={classes.root} onSubmit={doFreightRequest}>
-        <h1>Container Request</h1>
-        <TextField
-          label="Item Name"
-          variant="filled"
-          required
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-        <TextField
-          label="Quantity"
-          variant="filled"
-          required
-          value={quantity}
-          onChange={e => setQuantity(e.target.value)}
-        />
-        <TextField
-          label="Price"
-          variant="filled"
-          type="number"
-          required
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />
-        <TextField
-          label="G-Score"
-          variant="filled"
-          type="number"
-          required
-          value={gScore}
-          onChange={e => setgScore(e.target.value)}
-        />
-        <div>
-          <Button type="submit" variant="contained" color="primary">
-            Request
-          </Button>
-        </div>
-      </form>
-      <form className={classes.root} onSubmit={doFreightTransport}>
-        <h1>Container Transport</h1>
-        <TextField
-          label="Item Name"
-          variant="filled"
-          required
-          value={nameReq}
-          onChange={e => setNameReq(e.target.value)}
-        />
-        <TextField
-          label="Quantity"
-          variant="filled"
-          required
-          value={quantityReq}
-          onChange={e => setQuantityReq(e.target.value)}
-        />
-        <TextField
-          label="Price"
-          variant="filled"
-          type="number"
-          required
-          value={priceReq}
-          onChange={e => setPriceReq(e.target.value)}
-        />
-        <TextField
-          label="G-Score"
-          variant="filled"
-          type="number"
-          required
-          value={gScoreReq}
-          onChange={e => setgScoreReq(e.target.value)}
-        />
-        <div>
-          <Button type="submit" variant="contained" color="primary">
-            Transport
-          </Button>
-        </div>
-      </form>
+        <form className={classes.root} onSubmit={doFreightRequest}>
+          <h1>Container Request</h1>
+          <TextField
+            label="Item Name"
+            variant="filled"
+            required
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <TextField
+            label="Quantity"
+            variant="filled"
+            required
+            value={quantity}
+            onChange={e => setQuantity(e.target.value)}
+          />
+          <TextField
+            label="Price"
+            variant="filled"
+            type="number"
+            required
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+          <TextField
+            label="G-Score"
+            variant="filled"
+            type="number"
+            required
+            value={gScore}
+            onChange={e => setgScore(e.target.value)}
+          />
+          <div>
+            <Button type="submit" variant="contained" color="primary">
+              Request
+            </Button>
+          </div>
+        </form>
+        <form className={classes.root} onSubmit={doFreightTransport}>
+          <h1>Container Transport</h1>
+          <TextField
+            label="Item Name"
+            variant="filled"
+            required
+            value={nameReq}
+            onChange={e => setNameReq(e.target.value)}
+          />
+          <TextField
+            label="Quantity"
+            variant="filled"
+            required
+            value={quantityReq}
+            onChange={e => setQuantityReq(e.target.value)}
+          />
+          <TextField
+            label="Price"
+            variant="filled"
+            type="number"
+            required
+            value={priceReq}
+            onChange={e => setPriceReq(e.target.value)}
+          />
+          <TextField
+            label="G-Score"
+            variant="filled"
+            type="number"
+            required
+            value={gScoreReq}
+            onChange={e => setgScoreReq(e.target.value)}
+          />
+          <div>
+            <Button type="submit" variant="contained" color="primary">
+              Transport
+            </Button>
+          </div>
+        </form>
       </div>
-      
+
 
       <style jsx>{`
                 .content_container {
