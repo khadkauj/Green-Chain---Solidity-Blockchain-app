@@ -8,6 +8,7 @@ export default function Home(props) {
     <Layout >
       <div className="content_container">
         <TradersTables />
+        {props.cont}
       </div>
       <style jsx>{`
                 .content_container {
