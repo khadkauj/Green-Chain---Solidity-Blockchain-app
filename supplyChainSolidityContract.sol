@@ -15,6 +15,8 @@ contract supplyChain{
         string name;
         uint quantity;
         uint price;
+        address companyAddress;
+        uint gScore;
         // bool hasBeenRequested;
         // bool hasBeenReceived;
         // bool hasBeenTransported;
@@ -24,14 +26,14 @@ contract supplyChain{
     Freight[] public transportedFreight;
 
 
-    function doFreightRequest(string memory name, uint quantity, uint price) external {
+    function doFreightRequest(string memory name, uint quantity, uint price, address companyAddress, uint gScore) external {
         uint id = requestedFreight.length;
-        requestedFreight.push(Freight(id, name, quantity, price));
+        requestedFreight.push(Freight(id, name, quantity, price, companyAddress, gScore));
     }
 
-    function doFreightTransport(string memory name, uint quantity, uint price) external {
+    function doFreightTransport(string memory name, uint quantity, uint price, address companyAddress, uint gScore) external {
         uint id = transportedFreight.length;
-        transportedFreight.push(Freight(id, name, quantity, price));
+        transportedFreight.push(Freight(id, name, quantity, price, companyAddress, gScore));
     }
     
     // function markFreightAsReceived(uint id)external {
@@ -46,4 +48,35 @@ contract supplyChain{
         return transportedFreight;
     }
 
+    function getAllRequestedFreightByCompanyAdress(address companyAddress) external view returns(Freight[]memory){
+        Freight[] memory temporaray = new Freight[](requestedFreight.length);
+        uint counter = 0;
+        for(uint i = 0; i < requestedFreight.length; i++){
+            if(requestedFreight[i].companyAddress == companyAddress){
+                temporaray[counter] = requestedFreight[i];
+                counter++;
+            }
+        }
+        Freight[] memory result = new Freight[](counter);
+        for(uint j = 0; j < counter ; j++){
+            result[j] = temporaray[j];
+        }
+        return result;
+    }
+
+        function getAllTransportedFreightByCompanyAdress(address companyAddress) external view returns(Freight[]memory){
+        Freight[] memory temporaray = new Freight[](transportedFreight.length);
+        uint counter = 0;
+        for(uint i = 0; i < transportedFreight.length; i++){
+            if(transportedFreight[i].companyAddress == companyAddress){
+                temporaray[counter] = transportedFreight[i];
+                counter++;
+            }
+        }
+        Freight[] memory result = new Freight[](counter);
+        for(uint j = 0; j < counter ; j++){
+            result[j] = temporaray[j];
+        }
+        return result;
+    }
 }
