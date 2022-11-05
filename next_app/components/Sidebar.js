@@ -7,12 +7,11 @@ export default function Sidebar({ currentRole }) {
 
   return (
     <div className="sidebar">
-      <div className="title">
+      <div className="title" onClick={() => router.push("/traders")} style={{ cursor: "pointer" }}>
         <div className="img_container" >
           <i className="fas fa-link" color="green" style={{ color: "green", fontSize: "2.5rem" }}></i>
         </div>
-        <div style={{ marginLeft: "1.5rem" , fontSize:"1.75rem" }} >G chain</div>
-
+        <div style={{ marginLeft: "1.5rem", fontSize: "1.75rem" }} >G chain</div>
       </div>
       <div className="options">
         <ul>
@@ -59,27 +58,27 @@ export default function Sidebar({ currentRole }) {
 
         </ul>
 
-        <ul style={{ marginTop: "27rem", borderTop: "1px solid white" }}>
-          <li>
-            <Link
-              href="profile"
+
+        <div>
+          <Link
+            href="profile"
+          >
+            <div
+              className={
+                router.pathname.endsWith("profile")
+                  ? ["button", "active"].join(" ")
+                  : "button"
+              }
+              style={{ padding: "0" }}
             >
-              <div
-                className={
-                  router.pathname.endsWith("profile")
-                    ? ["button", "active"].join(" ")
-                    : "button"
-                }
-                style={{ padding: "0" }}
-              >
-                <div className="button_icon">
-                  <i className="fas fa-user-circle"></i>
-                </div>
-                <div>Profile</div>
+              <div className="button_icon">
+                <i className="fas fa-user-circle"></i>
               </div>
-            </Link>
-          </li>
-        </ul>
+              <div>Profile</div>
+            </div>
+          </Link>
+        </div>
+
       </div>
       <style jsx>
         {`
@@ -102,7 +101,7 @@ export default function Sidebar({ currentRole }) {
           .title {
             font-size: 1rem;
             display: flex;
-            height: 3rem;
+            height: 5%;
             justify-content: center;
             align-items: center;
             column-gap: 0.2rem;
@@ -121,7 +120,10 @@ export default function Sidebar({ currentRole }) {
           }
 
           .options {
-            // background: blue;
+            height:85%;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between
           }
 
           .button,
