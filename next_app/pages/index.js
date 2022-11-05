@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function index() {
@@ -6,6 +6,7 @@ export default function index() {
   useEffect(() => {
     router.push("/traders");
   });
+
 
   return (
     <div>
