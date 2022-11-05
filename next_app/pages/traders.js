@@ -1,6 +1,6 @@
 
 import Layout from "/components/Layout";
-import TradersTables from "/components/TradersTable"
+// import TradersTables from "/components/TradersTable"
 import CardComponent from '/components/CardComponent'
 import HeaderComponent from '/components/HeaderComponent'
 
