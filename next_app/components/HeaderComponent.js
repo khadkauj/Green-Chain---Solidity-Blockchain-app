@@ -6,7 +6,7 @@ import ABI from '../ABI.json'
 function header(props) {
 //   const [contract, setContract] = useState(null)
 //   const [defaultAccount, setDefaultAccount] = useState(null)
-//   const contractAddress = '0x1Cb6ff2BE115f6Ca03DD3C3dFc3c3AB55EfB98b8'
+//   const contractAddress = '0x0a1A174e9E96b29b0c9B33a8C74C077AAB7cB204'
 
 //   const connectWalletHandler = (event) => {
 //     // first we use metamask to sign in

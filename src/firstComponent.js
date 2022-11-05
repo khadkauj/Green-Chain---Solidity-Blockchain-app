@@ -5,7 +5,7 @@ import './firstComponent.css'
 
 function FirstComponent() {
 
-    const contractAddress = '0xC23d1970bc6D47E2d11bEd5FE4365885B9cAfd99'
+    const contractAddress = '0x0a1A174e9E96b29b0c9B33a8C74C077AAB7cB204'
 
     const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState(null);

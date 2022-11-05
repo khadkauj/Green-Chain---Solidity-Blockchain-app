@@ -5,31 +5,36 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Slider from "@material-ui/core/Slider";
 
 export default function MediaCard() {
 
     const datas = [
-        { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-        { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-        { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-        { name: "James Houston", company: "Test Corp", city: "Dallas", state: "TX" },
-        { name: "James Houston", company: "Test Corp", city: "Dallas", state: "TX" },
+        { name: "Aldi", company: "Test Corp", link: "https://www.aldi.cn/images/2018aldi/assets/images/about/about01.jpg", state: "NY" },
+        { name: "REWE", company: "Test Corp", link: "https://upload.wikimedia.org/wikipedia/commons/8/8f/REWE_Neu_Isenburg.jpg", state: "CT" },
+        { name: "Netto", company: "Test Corp", link: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Netto_Markt_Hannover-Ahlem.jpg", state: "FL" },
+        { name: "Lidl", company: "Test Corp", link: "https://c.files.bbci.co.uk/A757/production/_124293824_gettyimages-1232577498.jpg", state: "TX" },
+        { name: "James Houston", company: "Test Corp", link: "https://kaufland.media.schwarz/is/image/schwarz/hi-karriere-kaufland-entdecken-standorte?JGstbGVnYWN5LW9uc2l0ZS00JA==", state: "TX" },
     ];
 
+    const marks = [ 77, 20, 37, 10, 48 ]
+        
+
     return (<>
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
             {
                 datas.map((data, index) =>
-                (<Grid item xs={index === 4 || index === 3 ? 6 : 4}  style={{display:'flex', justifyContent:'center' }}  >
+                (<Grid item xs={index === 4 || index === 3 ? 6 : 4} style={{ display: 'flex', justifyContent: 'center' }}  >
                     <Card sx={{ maxWidth: 345 }}>
                         <CardMedia
                             component="img"
                             height="140"
-                            image="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+                            image={data.link}
                             alt="green iguana"
                         />
-                            <div style={{height:'50px',width:'100%',background:'green', padding:'0'} } ></div>
                         <CardContent>
+                            <div style={{ display: 'flex' }} ><span style={{ whiteSpace: 'nowrap' }} >Green Score:</span> 
+                            <Slider style={{ color: 'green', margin: '0 0 0 14px' }} disabled defaultValue={marks[index]} aria-labelledby="disabled-slider" /></div>
                             <Typography gutterBottom variant="h5" component="div">
                                 Lizard
                             </Typography>
@@ -48,7 +53,7 @@ export default function MediaCard() {
         </Grid><style jsx >{`
         
         `}
-            </style></>
+        </style></>
 
     );
 }
