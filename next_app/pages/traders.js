@@ -1,11 +1,16 @@
 
 import Layout from "/components/Layout";
 import TradersTables from "/components/TradersTable"
+import HeaderComponent from '/components/HeaderComponent'
 
 export default function Home(props) {
 
+  const connectWalletHandler = () => {}
+
   return (
     <Layout >
+      < HeaderComponent />
+      <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button>
       <div className="content_container">
         <TradersTables />
         {props.cont}
@@ -21,6 +26,17 @@ export default function Home(props) {
                 }
                 .count {
                   font-size: 2.5vh;
+                }
+                .button-connect-metamask{
+                  position: absolute;
+                  right: 24px;
+                  top: 14px;
+                  border-radius: 100px;
+                  border: 1px solid #7e8489;
+                  display: flex;
+                  place-items: center;
+                  padding: 8px;
+                  font-size: initial;
                 }
       `}</style>
     </Layout>

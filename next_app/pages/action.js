@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import { TextField } from '@mui/material';
 import Button from '@material-ui/core/Button';
 import { useState } from "react";
-
+import HeaderComponent from '/components/HeaderComponent'
 import { ethers } from 'ethers'
 import ABI from '../ABI.json'
 
@@ -98,7 +98,8 @@ export default function Home(props) {
   return (
     <Layout >
       {/* <Navbar /> */}
-      <button onClick={connectWalletHandler}>Connect Wallet</button>
+      < HeaderComponent />
+      <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button>
       <div className="form-container">
       <form className={classes.root} onSubmit={doFreightRequest}>
         <h1>Container Request</h1>
@@ -196,6 +197,17 @@ export default function Home(props) {
                   margin-top: 10%;
                   grid-template-columns: repeat(2, 1fr);
 
+                }
+                .button-connect-metamask{
+                  position: absolute;
+                  right: 24px;
+                  top: 14px;
+                  border-radius: 100px;
+                  border: 1px solid #7e8489;
+                  display: flex;
+                  place-items: center;
+                  padding: 8px;
+                  font-size: initial;
                 }
       `}</style>
     </Layout>
