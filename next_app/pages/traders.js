@@ -1,6 +1,7 @@
 
 import Layout from "/components/Layout";
 import TradersTables from "/components/TradersTable"
+import CardComponent from '/components/CardComponent'
 import HeaderComponent from '/components/HeaderComponent'
 
 export default function Home(props) {
@@ -11,8 +12,9 @@ export default function Home(props) {
     <Layout >
       < HeaderComponent />
       <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button>
-      <div className="content_container">
-        <TradersTables />
+      <div className=""  style={{padding:'14px'}} >
+        {/* <TradersTables /> */}
+        <CardComponent />
         {props.cont}
       </div>
       <style jsx>{`
@@ -28,6 +30,7 @@ export default function Home(props) {
                   font-size: 2.5vh;
                 }
                 .button-connect-metamask{
+                  cursor: pointer;
                   position: absolute;
                   right: 24px;
                   top: 14px;

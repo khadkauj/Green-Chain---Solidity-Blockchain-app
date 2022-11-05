@@ -199,6 +199,7 @@ export default function Home(props) {
 
                 }
                 .button-connect-metamask{
+                  cursor: pointer;
                   position: absolute;
                   right: 24px;
                   top: 14px;
