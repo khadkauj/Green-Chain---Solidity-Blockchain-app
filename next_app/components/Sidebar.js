@@ -107,6 +107,7 @@ export default function Sidebar({ currentRole }) {
             column-gap: 0.2rem;
             margin: 1.5rem 0 2.5rem 0;
           }
+          
           .img_container {
             width: 2.5rem;
             height: 2.5rem;
