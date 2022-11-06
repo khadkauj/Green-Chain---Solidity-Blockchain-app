@@ -29,6 +29,8 @@ export default function Home(props) {
     // handleClose();
   }
 
+
+
   // functions
   const connectWalletHandler = (event) => {
     // first we use metamask to sign in

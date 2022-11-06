@@ -26,8 +26,8 @@ const columns = [
     }
   },
   {
-    name: "G_Score",
-    label: "G score",
+    name: "Green_Score",
+    label: "Green score",
     options: {
       filter: true,
       sort: false,
@@ -36,10 +36,9 @@ const columns = [
 ];
 
 const data = [
-  { Name: "Joe James", Quantity: "Test Corp", Price: "Yonkers", G_Score: "NY" },
-  { Name: "John Walsh", Quantity: "Test Corp", Price: "Hartford", G_Score: "CT" },
-  { Name: "Bob Herm", Quantity: "Test Corp", Price: "Tampa", G_Score: "FL" },
-  { Name: "James Houston", Quantity: "Test Corp", Price: "Dallas", G_Score: "TX" },
+  { Name: "Lidl", Quantity: "25", Price: "0.0016 ETH", Green_Score: "Negative" },
+  { Name: "REWE", Quantity: "30", Price: "0.0023 ETH", Green_Score: "Positive" },
+  { Name: "Kaufland", Quantity: "15", Price: "0.012 ETH", Green_Score: "Positive" },
 ];
 
 const options = {
