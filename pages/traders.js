@@ -49,6 +49,7 @@ export default function Home(props) {
         <span className="button-connect-metamask">{defaultAccount.slice(0, 6)}...{defaultAccount.slice(defaultAccount.length - 4, defaultAccount.length)}</span>
         }      <div className=""  style={{padding:'14px'}} >
         {/* <TradersTables /> */}
+        <p style={{textAlign:'right'}} ><span className="coin-span" >0.002 G-coin<span>👛</span></span></p>
         <CardComponent />
         {props.cont}
       </div>
@@ -75,6 +76,11 @@ export default function Home(props) {
                   place-items: center;
                   padding: 8px;
                   font-size: initial;
+                }
+                .coin-span{
+                  border: 1px solid black;
+                  padding: 10px;
+                  border-radius: 14px;
                 }
       `}</style>
     </Layout>
