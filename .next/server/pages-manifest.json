@@ -1,12 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/action": "pages/action.html",
-  "/api/hello": "pages/api/hello.js",
-  "/": "pages/index.html",
-  "/trader/[ID]": "pages/trader/[ID].html",
-  "/profile": "pages/profile.html",
-  "/traders": "pages/traders.html",
-  "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js"
 }
