@@ -4,7 +4,7 @@ import * as React from 'react';
 const colors = ["#F6EEE3", "#FDF5E6", "#ECD9BA"];
 const delay = 10000; 
 const text =[
-"Supply Chain Companies Transparently And Securely Put Their Supply Chain Transactions In Blockchain To Create Trust With People",
+"Supply Chain Companies Transparently And Securely Put Their Supply Chain Transactions In Blockchain To Create Trust With Costumers",
 "And, We Calculte The Carbon Footprint They Emit And Let People Decide The Eco-Friendly Product They Want To Buy",
 "We Award Green Token/NFT To Costumer When They Transact Which Can Then Be Traded Within This Market To Promote Greener Economy"]
 
