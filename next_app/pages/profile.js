@@ -91,7 +91,7 @@ export default function Home(props) {
                   text-align: center;
                 }
                 .profile_container{
-                  padding. 24px;
+                  padding: 24px;
                 }
       `}</style>
     </Layout>
