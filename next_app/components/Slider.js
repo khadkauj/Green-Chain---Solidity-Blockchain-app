@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import * as React from 'react'; 
+
 
 const colors = ["#F6EEE3", "#FDF5E6", "#ECD9BA"];
 const delay = 10000; 
-const text =["Promoting Green token and NFT","Calculating carbon footprint of firms","Building trust between consumers and firms using blockchain"]
+const text =[
+"Supply Chain Companies Transparently And Securely Put Their Supply Chain Transactions In Blockchain To Create Trust With People",
+"And, We Calculte The Carbon Footprint They Emit And Let People Decide The Eco-Friendly Product They Want To Buy",
+"We Award Green Token/NFT To Costumer When They Transact Which Can Then Be Traded Within This Market To Promote Greener Economy"]
 
-function Slideshow() {
-  const [index, setIndex] = useState(0);
+export default function Slideshow() {
+  const [index, setIndex] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setTimeout(
       () =>
         setIndex((prevIndex) =>
@@ -23,14 +27,15 @@ function Slideshow() {
     <div className="slideshow">
       <div
         className="slideshowSlider"
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)`, fontSize:'24px' }}
       >
         {colors.map((backgroundColor, index) => (
           <div
             className="slide" 
             key={index}
             style={{ backgroundColor }}
-          ><div className='text-design'>{text[index]}</div></div>
+          ><div className='text-design'>{text[index].slice(0, 73)}</div>
+          <div className='text-design'>{text[index].slice(73,text[index].length )}</div></div>
         ))}
       </div>
 
@@ -69,8 +74,8 @@ function Slideshow() {
                 .slideshow {
                   margin: 0 auto;
                   overflow: hidden;
-                  max-width: 500px; 
-                  margin-top:30px;
+                  max-width: 80%; 
+                  margin-top:24px;
                 }
                 
                 .slideshowSlider {
@@ -106,7 +111,7 @@ function Slideshow() {
                   background-color: #6a0dad;
                 } 
                 .text-design{
-                  margin-top:50px; 
+                  margin-top: 24px; 
                   color: black;  
                   text-align: center;
                 }
@@ -115,5 +120,3 @@ function Slideshow() {
     
   );
 }
-
-export default Slideshow
