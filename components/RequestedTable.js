@@ -2,8 +2,8 @@ import MUIDataTable from "mui-datatables";
 
 const columns = [
   {
-    name: "Name",
-    label: "Name",
+    name: "Item",
+    label: "Item",
     options: {
       filter: true,
       sort: true,
@@ -36,9 +36,9 @@ const columns = [
 ];
 
 const data = [
-  { Name: "Aldi", Quantity: "10", Price: "0.0003 ETH", Green_Score: "Positive" },
-  { Name: "Netto", Quantity: "15", Price: "0.00006 ETH", Green_Score: "Negative" },
-  { Name: "kaufland", Quantity: "35", Price: "0.004 ETH", Green_Score: "Positive" },
+  { Item: "Apple", Quantity: "10", Price: "0.0003 ETH", Green_Score: "Positive" },
+  { Item: "Mango", Quantity: "15", Price: "0.00006 ETH", Green_Score: "Negative" },
+  { Item: "Ginger", Quantity: "35", Price: "0.004 ETH", Green_Score: "Positive" },
 ];
 
 const options = {

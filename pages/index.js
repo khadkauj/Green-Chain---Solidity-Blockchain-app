@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function index() {
   const router = useRouter();
   useEffect(() => {
-    router.push("/traders");
+    router.push("/action");
   });
 
 
