@@ -18,6 +18,7 @@ export default function MediaCard() {
     ];
 
     const marks = [ 77, 20, 37, 10, 48 ]
+    const shopList = ['Aldi', 'REWE', 'Netto', 'Lidl', 'Kaufland']
         
 
     return (<>
@@ -36,7 +37,7 @@ export default function MediaCard() {
                             <div style={{ display: 'flex' }} ><span style={{ whiteSpace: 'nowrap' }} >Green Score:</span> 
                             <Slider style={{ color: 'green', margin: '0 0 0 14px' }} disabled defaultValue={marks[index]} aria-labelledby="disabled-slider" /></div>
                             <Typography gutterBottom variant="h5" component="div">
-                                Lizard
+                                {shopList[index]}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
                                 Lizards are a widespread group of squamate reptiles, with over 6,000
