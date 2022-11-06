@@ -7,6 +7,7 @@ import { useState } from "react";
 import HeaderComponent from '/components/HeaderComponent'
 import { ethers } from 'ethers'
 import ABI from '../ABI.json'
+import Slideshow from '/components/Slider'
 
 
 const useStyles = makeStyles(theme => ({
@@ -103,6 +104,8 @@ export default function Home(props) {
         <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button> :
         <span className="button-connect-metamask">{defaultAccount.slice(0, 6)}...{defaultAccount.slice(defaultAccount.length - 4, defaultAccount.length)}</span>
         }
+              < Slideshow />
+
       <div className="form-container">
         <form className={classes.root} onSubmit={doFreightRequest}>
           <h1>Container Request</h1>
@@ -197,7 +200,7 @@ export default function Home(props) {
                 }
                 .form-container{
                   display: grid;
-                  margin-top: 10%;
+                  margin-top: 4%;
                   grid-template-columns: repeat(2, 1fr);
 
                 }

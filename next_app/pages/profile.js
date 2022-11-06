@@ -61,7 +61,6 @@ export default function Home(props) {
         <button className="button-connect-metamask" onClick={connectWalletHandler}>Connect With Metamask</button> :
         <span className="button-connect-metamask">{defaultAccount.slice(0, 6)}...{defaultAccount.slice(defaultAccount.length - 4, defaultAccount.length)}</span>
         }
-
       <div className="content_container">
         <div className="profile_container">
           <h1 className="title">All Your Transactions</h1>
