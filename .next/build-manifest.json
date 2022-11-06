@@ -30,6 +30,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/action.js"
     ],
+    "/profile": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/profile.js"
+    ],
     "/traders": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
