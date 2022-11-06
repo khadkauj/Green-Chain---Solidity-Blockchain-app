@@ -26,13 +26,15 @@ contract supplyChain{
     Freight[] public transportedFreight;
 
 
-    function doFreightRequest(string memory name, uint quantity, uint price, address companyAddress, uint gScore) external {
+    function doFreightRequest(string memory name, uint quantity, uint price, uint gScore) external {
         uint id = requestedFreight.length;
+        address companyAddress = msg.sender;
         requestedFreight.push(Freight(id, name, quantity, price, companyAddress, gScore));
     }
 
-    function doFreightTransport(string memory name, uint quantity, uint price, address companyAddress, uint gScore) external {
+    function doFreightTransport(string memory name, uint quantity, uint price, uint gScore) external {
         uint id = transportedFreight.length;
+        address  companyAddress = msg.sender;
         transportedFreight.push(Freight(id, name, quantity, price, companyAddress, gScore));
     }
     
